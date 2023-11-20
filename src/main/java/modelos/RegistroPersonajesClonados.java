@@ -27,10 +27,7 @@ public class RegistroPersonajesClonados {
         mapPersonaje.put("Guerrero", guerrero);
         Mago mago = new Mago(1, "mago.png", "Mago", "Fuego", "UPS");
         mapPersonaje.put("Mago", mago);
-        for (int i = 0; i < 5; i++) {
-            listaPersonajes.add(guerrero.clone());
-            listaPersonajes.add(mago.clone());
-        }
+
     }
 
     public void actualizarPersonaje(Personaje personaje) {

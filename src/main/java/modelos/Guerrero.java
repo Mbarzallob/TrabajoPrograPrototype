@@ -33,7 +33,7 @@ public class Guerrero extends Personaje{
 
     @Override
     public String toString() {
-        return "Guerrero{" + "fuerza=" + fuerza + '}';
+        return super.toString();
     }
     
     

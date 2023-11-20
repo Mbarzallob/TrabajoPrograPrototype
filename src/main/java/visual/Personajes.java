@@ -22,6 +22,7 @@ public class Personajes extends javax.swing.JFrame {
     public Personajes() {
         initComponents();
         clonados = new RegistroPersonajesClonados();
+        RegistroPersonajesClonados.loadCache();
     }
 
     /**

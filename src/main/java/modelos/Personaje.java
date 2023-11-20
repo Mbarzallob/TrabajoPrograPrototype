@@ -8,13 +8,15 @@ package modelos;
  *
  * @author mbarz
  */
-public abstract class Personaje implements Cloneable{
+public abstract class Personaje implements Cloneable {
+
     private String imagen;
     private String nombre;
     private String habilidad;
     private String equipo;
 
     public Personaje() {
+
     }
 
     public Personaje(String imagen, String nombre, String habilidad, String equipo) {
@@ -22,8 +24,11 @@ public abstract class Personaje implements Cloneable{
         this.nombre = nombre;
         this.habilidad = habilidad;
         this.equipo = equipo;
+
     }
 
+
+    
     public String getImagen() {
         return imagen;
     }
@@ -58,10 +63,11 @@ public abstract class Personaje implements Cloneable{
 
     @Override
     public String toString() {
-        return "Personajes{" + "imagen=" + imagen + ", nombre=" + nombre + ", habilidad=" + habilidad + ", equipo=" + equipo + '}';
+        return "Personaje{" + "imagen=" + imagen + ", nombre=" + nombre + ", habilidad=" + habilidad + ", equipo=" + equipo +  + '}';
     }
 
     
+
     @Override
     public Personaje clone() {
         try {

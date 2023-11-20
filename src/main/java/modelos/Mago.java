@@ -33,7 +33,7 @@ public class Mago extends Personaje{
 
     @Override
     public String toString() {
-        return "Mago{" + "encanto=" + encanto + '}';
+        return super.toString();
     }
     
 }
