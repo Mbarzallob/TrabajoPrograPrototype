@@ -4,17 +4,35 @@
  */
 package visual;
 
+import java.util.Map;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.table.DefaultTableModel;
+import modelos.Guerrero;
+import modelos.Mago;
+import modelos.Personaje;
+import modelos.RegistroPersonajesClonados;
+
 /**
  *
  * @author mbarz
  */
 public class PestañaClonado extends javax.swing.JInternalFrame {
 
+    Map<String, Personaje> map;
+    RegistroPersonajesClonados registro;
+    private Personaje personajeSeleccionado;
+
     /**
      * Creates new form PestañaClonado
      */
-    public PestañaClonado() {
+    public PestañaClonado(RegistroPersonajesClonados registro) {
         initComponents();
+        RegistroPersonajesClonados.loadCache();
+        map = RegistroPersonajesClonados.getMapPersonaje();
+        Object[] keys = map.keySet().toArray(new String[0]);
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(keys));
+        this.registro = registro;
     }
 
     /**
@@ -26,27 +44,371 @@ public class PestañaClonado extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jButton6 = new javax.swing.JButton();
+
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Nombre", "Habilidad", "Equipo", "Habilidad especial"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jButton1.setText("Mostrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Modificar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Eliminar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Guardar");
+        jButton4.setEnabled(false);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setText("Desplegar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jTextField1.setText("Nombre");
+        jTextField1.setEnabled(false);
+
+        jTextField2.setText("Habilidad");
+        jTextField2.setEnabled(false);
+
+        jTextField3.setText("Equipo");
+        jTextField3.setEnabled(false);
+
+        jTextField4.setText("Habilidad especial");
+        jTextField4.setEnabled(false);
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setEnabled(false);
+        jComboBox2.setFocusCycleRoot(true);
+
+        jButton6.setText("Mostrar imagen");
+        jButton6.setEnabled(false);
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton5))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addGap(34, 34, 34)
+                                .addComponent(jButton2)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton3)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton6)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton4))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                                    .addComponent(jTextField1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField4)
+                                    .addComponent(jTextField2)))
+                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(104, 124, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(34, 34, 34))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3)
+                    .addComponent(jButton4)
+                    .addComponent(jButton6))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        String tipo = (String) jComboBox1.getSelectedItem();
 
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+
+        for (Personaje personaje : registro.getListaPersonajes()) {
+            if (tipo.equalsIgnoreCase("Mago") && personaje instanceof Mago) {
+                Mago mago = (Mago) personaje;
+                model.addRow(new Object[]{mago.getNombre(), mago.getHabilidad(), mago.getEquipo(), mago.getEncanto()});
+            } else if (tipo.equalsIgnoreCase("Guerrero") && personaje instanceof Guerrero) {
+                Guerrero guerrero = (Guerrero) personaje;
+                model.addRow(new Object[]{guerrero.getNombre(), guerrero.getHabilidad(), guerrero.getEquipo(), guerrero.getFuerza()});
+            }
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        String nombre = jTextField1.getText();
+        String habilidad = jTextField2.getText();
+        String equipo = jTextField3.getText();
+        int atributoEspecial = Integer.parseInt(jTextField4.getText());
+        String imagePath = (String) jComboBox2.getSelectedItem();
+
+        if (personajeSeleccionado != null) {
+            personajeSeleccionado.setNombre(nombre);
+            personajeSeleccionado.setHabilidad(habilidad);
+            personajeSeleccionado.setEquipo(equipo);
+
+            if (personajeSeleccionado instanceof Mago) {
+                ((Mago) personajeSeleccionado).setEncanto(atributoEspecial);
+            } else if (personajeSeleccionado instanceof Guerrero) {
+                ((Guerrero) personajeSeleccionado).setFuerza(atributoEspecial);
+            }
+
+            personajeSeleccionado.setImagen(imagePath);
+
+            registro.actualizarPersonaje(personajeSeleccionado);
+            jTextField1.setEnabled(false);
+            jTextField2.setEnabled(false);
+            jTextField3.setEnabled(false);
+            jTextField4.setEnabled(false);
+            jComboBox2.setEnabled(false);
+            jButton6.setEnabled(false);
+            jButton4.setEnabled(false);
+
+            jTextField1.setText("");
+            jTextField2.setText("");
+            jTextField3.setText("");
+            jTextField4.setText("");
+
+        }
+        actualizarTabla();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String tipo = (String) jComboBox1.getSelectedItem();
+        int filaSeleccionada = jTable1.getSelectedRow();
+
+        if (filaSeleccionada != -1) {
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            String nombre = (String) model.getValueAt(filaSeleccionada, 0);
+
+            for (Personaje personaje : registro.getListaPersonajes()) {
+                if (personaje.getNombre().equals(nombre)) {
+                    if (tipo.equalsIgnoreCase("Mago") && personaje instanceof Mago) {
+                        Mago mago = (Mago) personaje;
+
+                        jTextField1.setEnabled(true);
+                        jTextField2.setEnabled(true);
+                        jTextField3.setEnabled(true);
+                        jTextField4.setEnabled(true);
+
+                        jTextField1.setText(mago.getNombre());
+                        jTextField2.setText(mago.getHabilidad());
+                        jTextField3.setText(mago.getEquipo());
+                        jTextField4.setText(String.valueOf(mago.getEncanto()));
+                        jButton4.setEnabled(true);
+                        jComboBox2.setEnabled(true);
+                        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"mago.png", "mago1.png", "mago2.png"}));
+                        jButton6.setEnabled(true);
+                        break;
+                    } else if (tipo.equalsIgnoreCase("Guerrero") && personaje instanceof Guerrero) {
+                        Guerrero guerrero = (Guerrero) personaje;
+
+                        jTextField1.setEnabled(true);
+                        jTextField2.setEnabled(true);
+                        jTextField3.setEnabled(true);
+                        jTextField4.setEnabled(true);
+
+                        jTextField1.setText(guerrero.getNombre());
+                        jTextField2.setText(guerrero.getHabilidad());
+                        jTextField3.setText(guerrero.getEquipo());
+                        jTextField4.setText(String.valueOf(guerrero.getFuerza()));
+                        jButton4.setEnabled(true);
+                        jComboBox2.setEnabled(true);
+                        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"caballero.png", "caballero1.png", "caballero2.png"}));
+                        jButton6.setEnabled(true);
+                        break;
+                    }
+                }
+            }
+        } else {
+            System.out.println("Por favor, seleccione un personaje de la tabla.");
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String tipo = (String) jComboBox1.getSelectedItem();
+
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+
+        for (Personaje personaje : registro.getListaPersonajes()) {
+            if (tipo.equalsIgnoreCase("Mago") && personaje instanceof Mago) {
+                Mago mago = (Mago) personaje;
+                model.addRow(new Object[]{mago.getNombre(), mago.getHabilidad(), mago.getEquipo(), mago.getEncanto()});
+
+                mostrarImagen(mago.getImagen());
+                personajeSeleccionado = mago;
+
+            } else if (tipo.equalsIgnoreCase("Guerrero") && personaje instanceof Guerrero) {
+                Guerrero guerrero = (Guerrero) personaje;
+                model.addRow(new Object[]{guerrero.getNombre(), guerrero.getHabilidad(), guerrero.getEquipo(), guerrero.getFuerza()});
+
+                mostrarImagen(guerrero.getImagen());
+                personajeSeleccionado = guerrero;
+
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        String selectedImagePath = (String) jComboBox2.getSelectedItem();
+        mostrarImagen(selectedImagePath);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        int filaSeleccionada = jTable1.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+
+        if (filaSeleccionada != -1) {
+            String nombre = (String) model.getValueAt(filaSeleccionada, 0);
+
+            for (Personaje personaje : registro.getListaPersonajes()) {
+                if (personaje.getNombre().equals(nombre)) {
+                    registro.eliminarPersonaje(personaje);
+                    break;
+                }
+            }
+
+            actualizarTabla();
+        } else {
+            System.out.println("Por favor, seleccione un personaje de la tabla.");
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void actualizarTabla() {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+
+        String tipo = (String) jComboBox1.getSelectedItem();
+        for (Personaje personaje : registro.getListaPersonajes()) {
+            if (tipo.equalsIgnoreCase("Mago") && personaje instanceof Mago) {
+                Mago mago = (Mago) personaje;
+                model.addRow(new Object[]{mago.getNombre(), mago.getHabilidad(), mago.getEquipo(), mago.getEncanto()});
+            } else if (tipo.equalsIgnoreCase("Guerrero") && personaje instanceof Guerrero) {
+                Guerrero guerrero = (Guerrero) personaje;
+                model.addRow(new Object[]{guerrero.getNombre(), guerrero.getHabilidad(), guerrero.getEquipo(), guerrero.getFuerza()});
+            }
+        }
+    }
+
+    private void mostrarImagen(String imagePath) {
+        ImageIcon icon = new ImageIcon(imagePath);
+
+        jLabel1.setIcon(icon);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JComboBox<Object> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }
