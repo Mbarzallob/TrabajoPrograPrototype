@@ -30,7 +30,7 @@ public class PestañaPersonaje extends javax.swing.JInternalFrame {
         map = RegistroPersonajesClonados.getMapPersonaje();
         Object[] keys = map.keySet().toArray(new String[0]);
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(keys));
-        this.registro= registro;
+        this.registro = registro;
     }
 
     /**
@@ -211,11 +211,20 @@ public class PestañaPersonaje extends javax.swing.JInternalFrame {
             Mago mago = (Mago) map.get(tipo);
             String nombreClon = JOptionPane.showInputDialog(this, "¿Cuál es tu nombre?");
             Mago magoClonado = new Mago();
-            magoClonado = (Mago)mago.clone(); 
+            magoClonado = (Mago) mago.clone();
             magoClonado.setNombre(nombreClon);
             registro.getListaPersonajes().add(magoClonado);
             System.out.println(magoClonado);
+        } else if (tipo.equalsIgnoreCase("Guerrero")) {
+            Guerrero guerrero = (Guerrero) map.get(tipo);
+            String nombreClon = JOptionPane.showInputDialog(this, "¿Cuál es tu nombre?");
+            Guerrero guerreroClonado = new Guerrero();
+            guerreroClonado = (Guerrero) guerrero.clone();
+            guerreroClonado.setNombre(nombreClon);
+            registro.getListaPersonajes().add(guerreroClonado);
+            System.out.println(guerreroClonado);
         }
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
